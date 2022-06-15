@@ -1,0 +1,43 @@
+<div class="card">
+  <ng-template pTemplate="paginatorleft">
+    <p-button type="button" styleClass="p-button-text">Ciemny</p-button>
+    <p-button type="button" styleClass="p-button-text">Jasny</p-button>
+  </ng-template>
+  <p-table
+    [value]="customers"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Company</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>{{ customer.code }}</td>
+        <td>{{ customer.ccurrency }}</td>
+        <td>{{ customer.company }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button
+        type="button"
+        styleClass="btn btn-secondary"
+        (click)="colorBack('Bl')"
+        >Ciemny</p-button
+      >
+      <p-button
+        type="button"
+        styleClass="p-button-text"
+        (click)="colorBack('Wh')"
+        >Jasny</p-button
+      >
+    </ng-template>
+  </p-table>
+</div>
